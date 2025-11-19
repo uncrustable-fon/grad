@@ -44,8 +44,13 @@ function closeLoginScreen() {
       if (width >= 100) {
         clearInterval(interval);
         setTimeout(() => {
-          loadingScreen.style.display = "none";
-          document.getElementById("mainContent").style.display = "block";
+              loadingScreen.style.display = "none";
+              document.getElementById("mainContent").style.display = "block";
+              // Try to autoplay the music player once the main UI is visible.
+              // Closing the login screen generally counts as a user gesture,
+              // but many browsers still block autoplay. If blocked, show a
+              // visible button so the user can enable audio with one click.
+              attemptAutoplay();
         }, 300); 
       }
     }, 100); // runs every 100ms
