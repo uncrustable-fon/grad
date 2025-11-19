@@ -431,3 +431,48 @@ function initPlaylist() {
   };
   if (playlist.length > 0) loadTrack(0);
 }
+
+// Try to autoplay the audio player. If blocked by the browser,
+// show an 'Enable Audio' button inside the music player for the user.
+function attemptAutoplay() {
+  const audio = document.getElementById('audioPlayer');
+  if (!audio) return;
+
+  // Remove any existing enable button
+  const existing = document.getElementById('enableAudioBtn');
+  if (existing) existing.remove();
+
+  // Try to play programmatically
+  audio.play().then(() => {
+    // playing succeeded
+    console.log('Autoplay started');
+  }).catch(err => {
+    console.log('Autoplay prevented:', err);
+    showEnableAudioButton();
+  });
+}
+
+function showEnableAudioButton() {
+  const playerWrap = document.getElementById('musicPlayer');
+  if (!playerWrap) return;
+  // If button already exists, don't add again
+  if (document.getElementById('enableAudioBtn')) return;
+
+  const btn = document.createElement('button');
+  btn.id = 'enableAudioBtn';
+  btn.textContent = 'Enable Audio';
+  btn.style.cssText = 'position:relative; display:block; margin:8px auto 0; padding:6px 10px; background:#0044cc; color:#fff; border:none; border-radius:6px; cursor:pointer;';
+  btn.addEventListener('click', () => {
+    const audio = document.getElementById('audioPlayer');
+    if (!audio) return;
+    audio.play().then(() => {
+      btn.remove();
+    }).catch(err => {
+      console.log('User-initiated play failed:', err);
+    });
+  });
+
+  // Insert button into the music player content area
+  const content = playerWrap.querySelector('.music-content') || playerWrap;
+  content.appendChild(btn);
+}
