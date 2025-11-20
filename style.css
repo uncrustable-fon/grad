@@ -369,11 +369,11 @@ body {
   left: 220px; /* adjust behind the left side of the photo window */
   width: 360px; /* larger width */
   height: 360px; /* larger height to keep a square container */
-  z-index: 100; /* behind the photo window which has z-index from .window */
+  z-index: 100001; /* bring the easter egg to the front when revealed */
   opacity: 0;
   transform: translateX(-40px) scale(0.98);
   transition: opacity 320ms ease, transform 320ms ease;
-  pointer-events: none; /* doesn't intercept clicks */
+  pointer-events: auto; /* allow interactions when revealed */
   display: flex;
   align-items: center;
   justify-content: center;
