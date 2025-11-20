@@ -1,0 +1,682 @@
+body {
+  margin: 0;
+  background: url('https://dl.dropbox.com/scl/fi/auz92xings8q8x86ava6a/25aa1a16b78d63f639b04b8427d4f2d6.jpg?rlkey=enpgtpdeqiadqmw9qzgtk60a9&st=pdnak4r0&') no-repeat center center fixed;
+  background-size: cover;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* XP-style login screen */
+.login-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  /* 🔽 Replace with your own image */
+  background: url("https://dl.dropbox.com/scl/fi/p4qeetzkxswaizn3p1v5s/xp-login.png?rlkey=wnm2dir1cslkme6wxllimqz5z&st=3pj6ljt9&") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.6s ease-in;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #fff;
+  
+}
+
+.vertical-line {
+  position: fixed; /* or absolute, depending on your layout needs */
+  top: 200px; /* Adjust based on your header height */
+  left: 48%;
+  transform: translateX(-50%); /* Centers the line precisely */
+  height: 500px; /* Makes the line span the full viewport height */
+  width: 2px; /* Adjust for desired thickness */
+  background-color: white; /* Sets the color to white */
+  opacity: 0.7; /* Slightly transparent for a subtle effect */
+  z-index: 999; /* Ensures the line appears above other content if needed */
+}
+
+.login-container-xp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 700px;
+  animation: zoomIn 0.5s ease;
+}
+
+.xp-logo img {
+  width: 220px;
+}
+
+.xp-users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.user-card img {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+.user-card span {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.user-card:hover {
+  transform: scale(1.05);
+}
+
+.family-login-xp {
+  margin-top: 15px;
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.family-login-xp input {
+  display: block;
+  width: 200px;
+  margin: 8px auto;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.family-login-xp button {
+  display: block;
+  width: 120px;
+  margin: 10px auto;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: #0046ad;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.family-login-xp button:hover {
+  background: #0066ff;
+}
+
+.login-error {
+  color: #ff4444;
+  margin-top: 8px;
+  font-size: 13px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.fade-out {
+  animation: fadeOut 0.7s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+.loading-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #c0c0c0; /* Windows gray */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-box {
+  width: 350px;
+  padding: 20px;
+  background: #e0e0e0;
+  border: 2px solid #808080;
+  box-shadow: 2px 2px #fff inset, -2px -2px #808080 inset;
+  font-family: Tahoma, sans-serif;
+  text-align: center;
+}
+
+.progress-container {
+  margin: 15px 0;
+  height: 25px;
+  background: #f0f0f0;
+  border: 2px inset #808080;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: navy;
+}
+
+.loading-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+.loading-buttons button {
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  padding: 3px 15px;
+  border: 2px outset #808080;
+  background: #e0e0e0;
+}
+.loading-buttons button:disabled {
+  color: gray;
+  border: 2px inset #808080;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to top, #808080, #c0c0c0);
+  border-top: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes buttons apart */
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+}
+
+.start-button {
+  background: #fff;
+  color: #000;
+  border: 2px outset #444;
+  padding: 5px 15px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+  /* ---------- Music Player UI Enhancements ---------- */
+  .music-player {
+    background: linear-gradient(180deg, #ffffff, #f2f6ff);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 8px;
+    width: 320px; /* keep compact */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  .music-player .music-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 6px;
+  }
+
+  .playlist-controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .playlist-controls button {
+    background: #0044cc;
+    color: #fff;
+    border: none;
+    padding: 4px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+
+  .playlist-controls button:hover {
+    background: #0066ff;
+  }
+
+  #currentTrack {
+    text-align: center;
+    font-size: 13px;
+    color: #0b1a2b;
+    background: #ffffff;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.06);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .track-list {
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    max-height: 190px;
+    overflow-y: auto;
+    display: block;
+  }
+
+  .track-item {
+    padding: 8px 10px;
+    margin: 6px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid transparent;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .track-item:hover {
+    background: rgba(0,68,204,0.06);
+    border-color: rgba(0,68,204,0.12);
+  }
+
+  .track-item.active {
+    background: linear-gradient(90deg, #00477f, #0066ff);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+
+  .track-item.active::after {
+    content: '▶';
+    margin-left: 8px;
+    opacity: 0.95;
+  }
+
+  #audioPlayer {
+    width: 100%;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* Scrollbar for track list */
+  .track-list::-webkit-scrollbar { width: 8px; }
+  .track-list::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 6px; }
+
+  @media (max-width: 480px) {
+    .music-player { width: 92%; left: 4%; }
+    .track-list { max-height: 140px; }
+  }
+.start-button:hover {
+  background: #333;
+}
+
+.start-menu {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  width: 250px;
+  background: #f8f8f8;
+  border: 2px outset #fff;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease;
+  z-index: 1100; /* ensure start menu sits above desktop elements like the flyer */
+}
+
+@keyframes slideUp {
+  from {transform: translateY(20px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+.window, .music-player {
+  position: absolute;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+  animation: fadeIn 0.6s ease;
+  border-radius: 4px;
+}
+
+.window {
+  top: 50px;
+  left: 480px;
+  width: 1400px;
+}
+
+/* Easter egg hidden behind the photo window */
+#easterEgg {
+  position: absolute;
+  top: 90px; /* slightly higher so bigger GIF still peeks */
+  left: 220px; /* adjust behind the left side of the photo window */
+  width: 360px; /* larger width */
+  height: 360px; /* larger height to keep a square container */
+  z-index: 100; /* behind the photo window which has z-index from .window */
+  opacity: 0;
+  transform: translateX(-40px) scale(0.98);
+  transition: opacity 320ms ease, transform 320ms ease;
+  pointer-events: none; /* doesn't intercept clicks */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#easterEgg img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* preserve aspect ratio */
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+}
+
+/* When revealed, make the egg visible */
+.easter-revealed #easterEgg {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Nudge photoWindow to reveal the egg */
+.easter-revealed #photoWindow {
+  transform: translateX(160px);
+  transition: transform 320ms ease;
+}
+
+.music-player {
+  top: 720px;
+  right: 35px;
+  width: 360px;
+  
+}
+
+.window-header, .music-header {
+  background: linear-gradient(90deg, #000080, #0044cc);
+  color: #fff;
+  padding: 5px;
+  cursor: move;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 1px 1px #000;
+}
+
+/* Sticky note styles (squared, pale yellow, classic top strip) */
+.sticky-note {
+  position: absolute; /* draggable with existing logic */
+  background: #fff9a8; /* pale yellow */
+  border: 3px solid #e1c84a;
+  box-shadow: 6px 6px 18px rgba(0,0,0,0.15);
+  width: 250px;
+  height: 250px; /* squared */
+  border-radius: 2px; /* minimal rounding */
+  z-index: 1200;
+}
+
+.sticky-note .window-header {
+  background: linear-gradient(180deg, #fff176, #fdd835);
+  color: #111;
+  padding: 10px 12px; /* larger vertical padding for a thicker top strip */
+  height: 6px; /* explicit header height to create a noticeable boarder */
+  line-height: 28px;
+  font-weight: bold;
+  border-bottom: 3px solid rgba(0,0,0,0.08);
+  cursor: move;
+}
+
+.sticky-note .window-content {
+  padding: 14px 12px;
+  background: transparent;
+  color: #111;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  height: calc(100% - 48px); /* match the new header height */
+  box-sizing: border-box;
+}
+
+.sticky-note p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* Desktop flyer pinned with a single piece of tape */
+.desktop-flyer {
+  position: absolute;
+  /* default placement: near the top-right of the desktop */
+  top: 140px;
+  right: 120px;
+  width: 320px;
+  transform: rotate(-3deg);
+  z-index: 1050;
+  pointer-events: auto;
+}
+.desktop-flyer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+  background: #fff;
+}
+.desktop-flyer .tape {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-6deg);
+  width: 120px;
+  height: 32px;
+  background: linear-gradient(180deg, rgba(255,238,136,0.98) 0%, rgba(245,220,90,0.98) 100%);
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  border: 1px solid rgba(0,0,0,0.06);
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+/* small responsive tweak: reduce flyer size on narrow screens */
+@media (max-width: 680px) {
+  .desktop-flyer { width: 220px; right: 20px; top: 110px; }
+  .desktop-flyer .tape { width: 90px; height: 26px; top: -14px; }
+}
+
+.window-content {
+  padding: 10px;
+  max-height: 600px;
+  min-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #000080 #e0e0e0;
+}
+
+.window-content::-webkit-scrollbar {
+  width: 8px;
+}
+.window-content::-webkit-scrollbar-thumb {
+  background-color: #000080;
+  border-radius: 4px;
+}
+
+.sidebar {
+  float: left;
+  width: 150px;
+  margin-right: 10px;
+  background: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0,0,128,0.6);
+}
+
+.photo-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 5000;
+}
+
+.photo-modal img {
+  max-width: 85%;
+  max-height: 85%;
+  border: 6px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.8);}
+  to {transform: scale(1);}
+}
+
+.dark-mode {
+  background: #121212 !important;
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .taskbar {
+  background: linear-gradient(to top, #202020, #333);
+  border-top: 2px solid #444;
+}
+
+.dark-mode .start-menu {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border: 2px solid #444;
+}
+
+.dark-mode .window,
+.dark-mode .music-player {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border: 2px solid #444;
+}
+
+.dark-mode .window-header,
+.dark-mode .music-header {
+  background: linear-gradient(90deg, #222, #444);
+  color: #fff;
+}
+
+.dark-mode .sidebar {
+  background: #2a2a2a;
+  border: 1px solid #444;
+}
+
+.dark-mode .photo-grid img {
+  border: 2px solid #555;
+  box-shadow: none;
+}
+
+.dark-mode .photo-grid img:hover {
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+.dark-mode .photo-modal {
+  background: rgba(0,0,0,0.95);
+}
+
+.dark-toggle {
+  margin-right: 10px;
+  background: #000080;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.dark-toggle:hover {
+  background: #0044cc;
+}
+/* Keep background the same in both modes */
+body, .dark-mode {
+  background: url('https://dl.dropbox.com/scl/fi/auz92xings8q8x86ava6a/25aa1a16b78d63f639b04b8427d4f2d6.jpg?rlkey=enpgtpdeqiadqmw9qzgtk60a9&st=pdnak4r0&') 
+              no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+.profile-photo {
+  width: 100px;   /* adjust size */
+  height: 100px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; /* preserve aspect ratio, fill the circle without squishing */
+  border-radius: 50%;  /* makes it circular */
+  display: block;
+  margin: 10px auto;   /* centers it */
+  zoom: 1.3
+}
+
+/* Confetti styles */
+.confetti-piece {
+  position: fixed;
+  top: -10vh;
+  left: 50vw;
+  width: 10px;
+  height: 14px;
+  opacity: 0.95;
+  border-radius: 2px;
+  z-index: 99999;
+  pointer-events: none;
+  transform-origin: center;
+  /* custom properties set from JS: --dx (px), --duration (ms), --rotate (deg) */
+  animation: confetti-fall var(--duration) linear forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-5vh) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--dx)) rotate(var(--rotate));
+    opacity: 1;
+  }
+}
+
+/* small responsive tweak: reduce confetti count for tiny screens if needed */
+@media (max-width: 420px) {
+  .confetti-piece { width: 8px; height: 10px; }
+}
